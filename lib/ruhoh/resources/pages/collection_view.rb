@@ -42,10 +42,10 @@ module Ruhoh::Resources::Pages
       pages = all
       pages.each_with_index do |page, i|
         thisYear = page['date'].strftime('%Y')
-        thisMonth = page['date'].strftime('%B')
+        thisMonth = Date::MONTHNAMES[page['date'].month]
         if (i-1 >= 0)
           prevYear = pages[i-1]['date'].strftime('%Y')
-          prevMonth = pages[i-1]['date'].strftime('%B')
+          prevMonth = Date::MONTHNAMES[pages[i-1]['date'].month]
         end
 
         if(prevYear == thisYear) 
