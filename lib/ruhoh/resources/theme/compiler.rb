@@ -32,7 +32,7 @@ module Ruhoh::Resources::Theme
     def is_valid_asset?(filepath)
       return false unless File.exist? filepath
       return false if FileTest.directory?(filepath)
-      return false if filepath.start_with?('.', 'layouts', 'stylesheets', 'javascripts', 'media')
+      return false if filepath.start_with?('.', 'layouts', 'stylesheets', 'javascripts', 'media', 'fonts')
       excludes = Array(@collection.config['exclude']).map { |node| Regexp.new(node) }
       excludes.each { |regex| return false if filepath =~ regex }
       true
